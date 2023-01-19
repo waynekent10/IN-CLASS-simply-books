@@ -14,7 +14,7 @@ export default function UserProfile() {
       <h4>Last login:{user.metadata.lastSignInTime}</h4>
       <Button type="button" size="lg" className="copy-btn" onClick={signOut}>
         Sign Out
-      </Button >
+      </Button>
     </div>
   );
 }
