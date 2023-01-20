@@ -8,7 +8,7 @@ import { deleteAuthorBooks } from '../api/mergedData';
 export default function AuthorCard({ authorObj, onUpdate }) {
   const deleteThisAuthor = () => {
     if (window.confirm(`Delete ${authorObj.first_name}${authorObj.last_name}?`)) {
-     deleteAuthorBooks(authorObj.firebaseKey).then(() => onUpdate());
+      deleteAuthorBooks(authorObj.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -20,18 +20,18 @@ export default function AuthorCard({ authorObj, onUpdate }) {
         <Card.Title>{authorObj.last_name}</Card.Title>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
         <Link href={`/book/${authorObj.firebaseKey}`} passHref>
-            <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
         <Link href={`/book/edit/${authorObj.firebaseKey}`} passHref>
-            <Button variant="info">EDIT</Button>
+          <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
           DELETE
         </Button>
       </Card.Body>
     </Card>
-    );
+  );
 }
 
 AuthorCard.propTypes = {
