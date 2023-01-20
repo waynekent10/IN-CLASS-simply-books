@@ -14,6 +14,7 @@ const initialState = {
   last_name: '',
   image: '',
   favorite: false,
+  author_id: '',
 };
 
 function AuthorForm({ obj }) {
@@ -120,6 +121,7 @@ AuthorForm.propTypes = {
     last_name: PropTypes.string,
     image: PropTypes.string,
     favorite: PropTypes.bool,
+    author_id: PropTypes.string,
   }),
 };
 AuthorForm.defaultProps = {
