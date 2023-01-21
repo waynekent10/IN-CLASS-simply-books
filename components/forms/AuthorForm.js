@@ -24,7 +24,7 @@ function AuthorForm({ obj }) {
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
-  }, [obj, user]);
+  }, [obj]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,11 +40,8 @@ function AuthorForm({ obj }) {
       updateAuthor(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createAuthor(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
-        updateAuthor(patchPayload).then(() => {
-          router.push('/authors');
-        });
+      createAuthor(payload).then(() => {
+        router.push('/authors');
       });
     }
   };
@@ -64,7 +61,7 @@ function AuthorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="Last Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Last Name" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Authors Last Name"
@@ -75,7 +72,7 @@ function AuthorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="email" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="email" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter email"
@@ -86,7 +83,7 @@ function AuthorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput4" label="Author image" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Author image" className="mb-3">
         <Form.Control
           type="url"
           placeholder="Enter a Url"

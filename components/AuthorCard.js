@@ -19,11 +19,11 @@ export default function AuthorCard({ authorObj, onUpdate }) {
         <Card.Title>{authorObj.first_name}</Card.Title>
         <Card.Title>{authorObj.last_name}</Card.Title>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
-        <Link href={`/book/${authorObj.firebaseKey}`} passHref>
+        <Link href={`/author/${authorObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
-        <Link href={`/book/edit/${authorObj.firebaseKey}`} passHref>
+        <Link href={`/author/edit/${authorObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
