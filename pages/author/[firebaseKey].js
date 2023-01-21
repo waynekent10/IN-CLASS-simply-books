@@ -7,7 +7,11 @@ import { viewAuthorDetails } from '../../api/mergedData';
 export default function ViewAuthor() {
   const [authorDetails, setAuthorDetails] = useState({});
   const router = useRouter();
+
   const { firebaseKey } = router.query;
+  const viewAuthorBooks = () => {
+    viewAuthorDetails(firebaseKey).then(setAuthorDetails);
+  };
 
   useEffect(() => {
     viewAuthorDetails(firebaseKey).then(setAuthorDetails);
@@ -21,7 +25,7 @@ export default function ViewAuthor() {
         <div className="text-white ms-5 details">
           <h5>
             {authorDetails.first_name} by {authorDetails.last_name}
-            {authorDetails.favorite ? '' : ''}
+            {authorDetails.favorite ? '🤍' : ''}
           </h5>
           Author Email: <a href={`mailto:${authorDetails.email}`}>{authorDetails.email}</a>
         </div>
@@ -29,7 +33,7 @@ export default function ViewAuthor() {
       <hr />
       <div className="d-flex flex-wrap">
         {authorDetails.books?.map((book) => (
-          <BookCard key={book.firebaseKey} bookObj={book} onUpdate={viewAuthorDetails} />
+          <BookCard key={book.firebaseKey} bookObj={book} onUpdate={viewAuthorBooks} />
         ))}
       </div>
     </>
