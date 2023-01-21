@@ -41,10 +41,10 @@ function AuthorForm({ obj }) {
     } else {
       const payload = { ...formInput, uid: user.uid };
       createAuthor(payload).then(() => {
-          router.push('/authors');
-        });
-      };
-    };
+        router.push('/authors');
+      });
+    }
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
