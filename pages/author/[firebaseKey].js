@@ -23,7 +23,7 @@ export default function ViewAuthor() {
             {authorDetails.first_name} by {authorDetails.last_name}
             {authorDetails.favorite ? '' : ''}
           </h5>
-          Author Email: <a href={`mailto:${authorDetails.authorObject?.email}`}>{authorDetails.authorObject?.email}</a>
+          Author Email: <a href={`mailto:${authorDetails.email}`}>{authorDetails.email}</a>
         </div>
       </div>
       <hr />
