@@ -40,8 +40,11 @@ function AuthorForm({ obj }) {
       updateAuthor(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createAuthor(payload).then(() => {
+      createAuthor(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateAuthor(patchPayload).then(() => {
         router.push('/authors');
+        });
       });
     }
   };
@@ -72,23 +75,23 @@ function AuthorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Author Image" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="email" className="mb-3">
         <Form.Control
-          type="url"
-          placeholder="Enter an image url"
-          name="image"
-          value={formInput.image}
+          type="text"
+          placeholder="Enter email"
+          name="email"
+          value={formInput.email}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput4" label="Email" className="mb-3">
+      <FloatingLabel controlId="floatingInput4" label="Author image" className="mb-3">
         <Form.Control
-          type="text"
-          placeholder="Authors Email"
+          type="url"
+          placeholder="Enter a Url"
           name="image"
-          value={formInput.email}
+          value={formInput.image}
           onChange={handleChange}
           required
         />

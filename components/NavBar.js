@@ -28,7 +28,7 @@ export default function NavBar() {
               <Nav.Link>Books on Sale</Nav.Link>
             </Link>
             <Link passHref href="/authors">
-              <Nav.Link>Authors</Nav.Link>
+              <Nav.Link>Show Authors</Nav.Link>
             </Link>
             <Link passHref href="/author/favorite">
               <Nav.Link>Fav Authors</Nav.Link>
